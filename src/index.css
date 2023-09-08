@@ -86,25 +86,25 @@ select {
   /* light mode */
   --body-bg-light: hsl(236, 33%, 92%);
   --container-bg-light: hsl(0, 0%, 98%);
-  --body-text-light: hsl(235, 19%, 35%);
-  --secondary-text-light: hsl(233, 11%, 84%);
-  --secondary-text-hover-light: hsl(236, 9%, 61%);
+  --main-text-light: hsl(235, 19%, 35%);
+  --body-text-light: hsl(233, 11%, 84%);
+  --body-text-hover-light: hsl(236, 9%, 61%);
 
   /* dark mode */
   --body-bg-dark: hsl(235, 21%, 11%);
   --container-bg-dark: hsl(235, 24%, 19%);
-  --body-text-dark: hsl(234, 39%, 85%);
-  --secondary-text-dark: hsl(234, 11%, 52%);
-  --secondary-text-hover-dark: hsl(236, 33%, 92%);
+  --main-text-dark: hsl(234, 39%, 85%);
+  --body-text-dark: hsl(234, 11%, 52%);
+  --body-text-hover-dark: hsl(236, 33%, 92%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --body-bg: var(--body-bg-dark);
     --container-bg: var(--container-bg-dark);
+    --main-text: var(--main-text-dark);
     --body-text: var(--body-text-dark);
-    --secondary-text: var(--secondary-text-dark);
-    --secondary-text-hover: var(--secondary-text-hover-dark);
+    --body-text-hover: var(--body-text-hover-dark);
   }
 }
 
@@ -112,15 +112,33 @@ select {
   :root {
     --body-bg: var(--body-bg-light);
     --container-bg: var(--container-bg-light);
-    --body-text: var(--body-text-light);
-    --secondary-text: var(--secondary-text---body-text-light);
-    --secondary-text-hover: var(--secondary-text-hover-light);
+    --main-text: var(--main-text-light);
+    --body-text: var(--body-text---main-text-light);
+    --body-text-hover: var(--body-text-hover-light);
   }
+}
+
+:root[color-scheme="dark"] {
+  --body-bg: var(--body-bg-dark);
+  --container-bg: var(--container-bg-dark);
+  --main-text: var(--main-text-dark);
+  --body-text: var(--body-text-dark);
+  --body-text-hover: var(--body-text-hover-dark);
+  color-scheme: dark;
+}
+
+:root[color-scheme="light"] {
+  --body-bg: var(--body-bg-light);
+  --container-bg: var(--container-bg-light);
+  --main-text: var(--main-text-light);
+  --body-text: var(--body-text---main-text-light);
+  --body-text-hover: var(--body-text-hover-light);
+  color-scheme: light;
 }
 
 body {
   font-family: "Josefin Sans", sans-serif;
   text-align: center;
   background-color: var(--body-bg);
-  color: var(--body-text);
+  color: var(--main-text);
 }
